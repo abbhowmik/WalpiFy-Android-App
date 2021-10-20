@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:walpify/data/data.dart';
 import 'package:walpify/model/cateries_model.dart';
 import 'package:walpify/model/walpaper_model.dart';
+import 'package:walpify/services/api_manager.dart';
 import 'package:walpify/widget/widget.dart';
 import 'package:http/http.dart' as http;
 
@@ -19,20 +20,13 @@ class _HomeState extends State<Home> {
   final TextEditingController _searchQuery = TextEditingController();
 
   List<CategorieModel> categories = <CategorieModel>[];
-  // List<WalpaperModel> walpapers = <WalpaperModel>[];
-
-  //   Map<String, dynamic> jsonData = jsonDecode(response.body);
-  //   jsonData["photos"].forEach((element) {
-  //     WalpaperModel walpaperModel = new WalpaperModel();
-  //     walpaperModel = WalpaperModel.Map(element);
-  //     walpapers.add(walpaperModel);
-  //   });
-  //   setState(() {});
+  // ignore: unused_field
+  late Future<WalpaperModel> _walpaperModel;
 
   @override
   void initState() {
     categories = getCategories();
-    // getTrendingWalpaper();
+    _walpaperModel = API_Manager().getWalpapers();
     super.initState();
   }
 

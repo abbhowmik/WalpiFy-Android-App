@@ -1,11 +1,12 @@
 import 'dart:convert';
 
-Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
+WalpaperModel welcomeFromJson(String str) =>
+    WalpaperModel.fromJson(json.decode(str));
 
-String welcomeToJson(Welcome data) => json.encode(data.toJson());
+String welcomeToJson(WalpaperModel data) => json.encode(data.toJson());
 
-class Welcome {
-  Welcome({
+class WalpaperModel {
+  WalpaperModel({
     required this.page,
     required this.perPage,
     required this.photos,
@@ -21,7 +22,7 @@ class Welcome {
   String nextPage;
   String prevPage;
 
-  factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+  factory WalpaperModel.fromJson(Map<String, dynamic> json) => WalpaperModel(
         page: json["page"],
         perPage: json["per_page"],
         photos: List<Photo>.from(json["photos"].map((x) => Photo.fromJson(x))),
