@@ -13,7 +13,7 @@ class API_Manager {
     if (response.statusCode == 200) {
       var jsonString = response.body;
       var jsonMap = json.decode(jsonString);
-      var we = Welcome.fromJson(jsonMap);
+      var welcome = Welcome.fromJson(jsonMap);
     }
   }
 }
