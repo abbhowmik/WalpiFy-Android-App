@@ -19,27 +19,20 @@ class _HomeState extends State<Home> {
   final TextEditingController _searchQuery = TextEditingController();
 
   List<CategorieModel> categories = <CategorieModel>[];
-  List<WalpaperModel> walpapers = <WalpaperModel>[];
+  // List<WalpaperModel> walpapers = <WalpaperModel>[];
 
-  getTrendingWalpaper() async {
-    var url = Uri.parse("https://api.pexels.com/v1/curated?page=2&per_page=80");
-    var response = await http.get(url, headers: {
-      "Authorization":
-          "563492ad6f9170000100000106a3406aac0746a19935fb74eddd45a6"
-    });
-    Map<String, dynamic> jsonData = jsonDecode(response.body);
-    jsonData["photos"].forEach((element) {
-      WalpaperModel walpaperModel = new WalpaperModel();
-      walpaperModel = WalpaperModel.Map(element);
-      walpapers.add(walpaperModel);
-    });
-    setState(() {});
-  }
+  //   Map<String, dynamic> jsonData = jsonDecode(response.body);
+  //   jsonData["photos"].forEach((element) {
+  //     WalpaperModel walpaperModel = new WalpaperModel();
+  //     walpaperModel = WalpaperModel.Map(element);
+  //     walpapers.add(walpaperModel);
+  //   });
+  //   setState(() {});
 
   @override
   void initState() {
     categories = getCategories();
-    getTrendingWalpaper();
+    // getTrendingWalpaper();
     super.initState();
   }
 
@@ -95,7 +88,7 @@ class _HomeState extends State<Home> {
                       );
                     }),
               ),
-              walpapersList(walpapers, context),
+              // walpapersList(walpapers, context),
             ],
           ),
         ),
