@@ -21,12 +21,12 @@ class _HomeState extends State<Home> {
 
   List<CategorieModel> categories = <CategorieModel>[];
   // ignore: unused_field
-  late Future<WalpaperModel> _walpaperModel;
+  late Future<WalpaperModel> walpaperModel;
 
   @override
   void initState() {
     categories = getCategories();
-    _walpaperModel = API_Manager().getWalpapers();
+    walpaperModel = API_Manager().getWalpapers();
     super.initState();
   }
 
@@ -44,12 +44,13 @@ class _HomeState extends State<Home> {
         child: Container(
           child: Column(
             children: [
+              // ! search Container
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 margin: EdgeInsets.symmetric(horizontal: 20, vertical: 13),
                 decoration: BoxDecoration(
                   color: Color(0xfff5f8fd),
-                  borderRadius: BorderRadius.circular(38),
+                  borderRadius: BorderRadius.circular(36),
                 ),
                 child: Row(
                   children: [
@@ -62,13 +63,15 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
-                    Icon(Icons.find_in_page),
+                    Icon(Icons.search),
                   ],
                 ),
               ),
               SizedBox(
                 height: 17,
               ),
+
+              // ! Categories
               Container(
                 height: 100,
                 child: ListView.builder(
@@ -82,7 +85,8 @@ class _HomeState extends State<Home> {
                       );
                     }),
               ),
-              // walpapersList(walpapers, context),
+              // ! WalpaperList
+              walpapersList(walpaperModel, context)
             ],
           ),
         ),

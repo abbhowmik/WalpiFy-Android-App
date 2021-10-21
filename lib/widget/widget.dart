@@ -19,31 +19,70 @@ Widget brandName() {
   );
 }
 
-Widget walpapersList(List<WalpaperModel> walpapers, BuildContext context) {
+Widget walpapersList(
+    Future<WalpaperModel> walpaperModel, BuildContext context) {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 9),
-    child: GridView.count(
-      shrinkWrap: true,
-      crossAxisCount: 2,
-      childAspectRatio: 0.6,
-      crossAxisSpacing: 6.4,
-      physics: ClampingScrollPhysics(),
-      mainAxisSpacing: 7.6,
-      children: walpapers.map((WalpaperModel walpaper) {
-        return GridTile(
-          child: Container(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.network(
-                "https://images.pexels.com/photos/9749656/pexels-photo-9749656.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                fit: BoxFit.cover,
+    child: FutureBuilder(
+      future: walpaperModel,
+      builder: (BuildContext context, AsyncSnapshot<WalpaperModel> snapshot) {
+        if (snapshot.hasData) {
+          return GridView.builder(
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.49,
+                crossAxisSpacing: 6.4,
+                mainAxisSpacing: 7.8,
               ),
-            ),
-          ),
-        );
-      }).toList(),
+              itemBuilder: (context, index) {
+                final walp = snapshot.data!.photos[index];
+                return Container(
+                  padding: EdgeInsets.symmetric(horizontal: 1),
+                  child: GridTile(
+                    child: Container(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.network(
+                          walp.src.portrait,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
+              itemCount: snapshot.data!.photos.length);
+        } else {
+          return Center(child: CircularProgressIndicator());
+        }
+      },
     ),
   );
 }
 
-CachedNetworkImage({String? imageUrl, placeholder}) {}
+
+// Container(
+//     padding: EdgeInsets.symmetric(horizontal: 9),
+//     child: GridView.count(
+      // shrinkWrap: true,
+//       crossAxisCount: 2,
+//       childAspectRatio: 0.6,
+//       crossAxisSpacing: 6.4,
+//       physics: ClampingScrollPhysics(),
+//       mainAxisSpacing: 7.6,
+//     ),
+//   );
+  //  children: walpapers.map((WalpaperModel walpaper) {
+        // return GridTile(
+        //   child: Container(
+        //     child: ClipRRect(
+        //       borderRadius: BorderRadius.circular(10),
+        //       child: Image.network(
+        //         "https://images.pexels.com/photos/9749656/pexels-photo-9749656.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+        //         fit: BoxFit.cover,
+        //       ),
+        //     ),
+        //   ),
+        // );
+  //     }).toList(),
