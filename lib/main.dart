@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:walpify/views/home.dart';
 
@@ -12,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      showSemanticsDebugger: false,
       home: Home(),
     );
   }
