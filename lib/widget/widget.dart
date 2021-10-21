@@ -38,7 +38,7 @@ Widget walpapersList(
               itemBuilder: (context, index) {
                 final walp = snapshot.data!.photos[index];
                 return Container(
-                  padding: EdgeInsets.symmetric(horizontal: 1),
+                  padding: EdgeInsets.only(right: 5, left:5),
                   child: GridTile(
                     child: Container(
                       child: ClipRRect(
