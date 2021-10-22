@@ -177,15 +177,9 @@
     },
     {
       "name": "permission_handler",
-      "rootUri": "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-4.4.0+hotfix.4",
+      "rootUri": "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-4.3.0",
       "packageUri": "lib/",
       "languageVersion": "2.1"
-    },
-    {
-      "name": "permission_handler_platform_interface",
-      "rootUri": "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler_platform_interface-1.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.0"
     },
     {
       "name": "petitparser",
@@ -201,9 +195,9 @@
     },
     {
       "name": "plugin_platform_interface",
-      "rootUri": "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-1.0.3",
+      "rootUri": "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.0.2",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.12"
     },
     {
       "name": "process",
@@ -296,7 +290,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-10-22T05:18:08.260581Z",
+  "generated": "2021-10-22T11:11:04.369877Z",
   "generator": "pub",
   "generatorVersion": "2.14.3"
 }
