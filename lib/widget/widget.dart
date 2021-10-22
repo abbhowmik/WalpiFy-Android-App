@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:walpify/model/walpaper_model.dart';
 import 'package:walpify/views/image_view.dart';
