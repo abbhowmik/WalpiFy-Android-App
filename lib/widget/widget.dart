@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:walpify/model/walpaper_model.dart';
+import 'package:walpify/views/image_view.dart';
 
 Widget brandName() {
   return Row(
@@ -33,7 +34,7 @@ Widget walpapersList(
                 physics: ClampingScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 0.6,
+                  childAspectRatio: 0.56,
                   crossAxisSpacing: 6.4,
                   mainAxisSpacing: 7.8,
                 ),
@@ -41,11 +42,23 @@ Widget walpapersList(
                   final walp = snapshot.data!.photos[index];
                   return GridTile(
                     child: Container(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.network(
-                          walp.src.portrait,
-                          fit: BoxFit.cover,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      ImageView(imgUrl: walp.src.portrait)));
+                        },
+                        child: Hero(
+                          tag: walp.src.portrait,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.network(
+                              walp.src.portrait,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -60,29 +73,3 @@ Widget walpapersList(
     ),
   );
 }
-
-
-// Container(
-//     padding: EdgeInsets.symmetric(horizontal: 9),
-//     child: GridView.count(
-      // shrinkWrap: true,
-//       crossAxisCount: 2,
-//       childAspectRatio: 0.6,
-//       crossAxisSpacing: 6.4,
-//       physics: ClampingScrollPhysics(),
-//       mainAxisSpacing: 7.6,
-//     ),
-//   );
-  //  children: walpapers.map((WalpaperModel walpaper) {
-        // return GridTile(
-        //   child: Container(
-        //     child: ClipRRect(
-        //       borderRadius: BorderRadius.circular(10),
-        //       child: Image.network(
-        //         "https://images.pexels.com/photos/9749656/pexels-photo-9749656.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-        //         fit: BoxFit.cover,
-        //       ),
-        //     ),
-        //   ),
-        // );
-  //     }).toList(),

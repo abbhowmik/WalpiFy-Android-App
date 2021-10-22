@@ -7,6 +7,9 @@ import 'package:walpify/model/cateries_model.dart';
 import 'package:walpify/model/walpaper_model.dart';
 import 'package:walpify/services/api_manager.dart';
 import 'package:walpify/widget/widget.dart';
+import 'category.dart';
+import 'search.dart';
+
 import 'package:http/http.dart' as http;
 
 class Home extends StatefulWidget {
@@ -17,10 +20,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final TextEditingController _searchQuery = TextEditingController();
+  TextEditingController searchQuery = new TextEditingController();
 
   List<CategorieModel> categories = <CategorieModel>[];
-  // ignore: unused_field
   late Future<WalpaperModel> walpaperModel;
 
   @override
@@ -56,14 +58,22 @@ class _HomeState extends State<Home> {
                   children: [
                     Expanded(
                       child: TextField(
-                        controller: _searchQuery,
+                        controller: searchQuery,
                         decoration: InputDecoration(
                           hintText: "Search for walpaper",
                           border: InputBorder.none,
                         ),
                       ),
                     ),
-                    Icon(Icons.search),
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      Search(query: searchQuery.text)));
+                        },
+                        child: Icon(Icons.search)),
                   ],
                 ),
               ),
@@ -102,34 +112,42 @@ class CatetoriesTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 4, left: 8),
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(6),
-            child: Image.network(
-              imgUrl,
-              height: 50,
-              width: 100,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Container(
-            color: Colors.black38,
-            height: 50,
-            width: 100,
-            alignment: Alignment.center,
-            child: Text(
-              title,
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => SearchCategory(title: title)));
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: 4, left: 8),
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(6),
+              child: Image.network(
+                imgUrl,
+                height: 50,
+                width: 100,
+                fit: BoxFit.cover,
               ),
             ),
-          )
-        ],
+            Container(
+              color: Colors.black38,
+              height: 50,
+              width: 100,
+              alignment: Alignment.center,
+              child: Text(
+                title,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
