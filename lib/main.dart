@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:walpify/views/home.dart';
 import 'package:walpify/widget/widget.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,30 +28,26 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
-  void initState() {
-    Timer(Duration(seconds: 2), GotoHomePage);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(235, 234, 235, 2),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(120),
-          child: Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage('assets/image/splash_logo.png'),
-            )),
-          ),
-        ),
+      // body: Center(
+      //   child: Padding(
+      //     padding: const EdgeInsets.all(120),
+      //     child: Container(
+      //       decoration: BoxDecoration(
+      //           image: DecorationImage(
+      //         image: AssetImage('assets/image/splash_logo.png'),
+      //       )),
+      //     ),
+      //   ),
+      // ),
+      body: AnimatedSplashScreen(
+        duration: 1700,
+        splash: 'assets/image/splash_logo.png',
+        nextScreen: Home(),
+        backgroundColor: Color.fromRGBO(235, 234, 235, 2),
+        splashTransition: SplashTransition.fadeTransition,
       ),
     );
-  }
-
-  void GotoHomePage() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
   }
 }

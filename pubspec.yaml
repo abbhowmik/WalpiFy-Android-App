@@ -35,6 +35,7 @@ dependencies:
   dio: ^4.0.0
   image_gallery_saver: "^1.7.1"
   path_provider: ^2.0.5
+  animated_splash_screen: ^1.1.0
   permission_handler: ^4.2.0+hotfix.2
   cupertino_icons: ^1.0.2
 
