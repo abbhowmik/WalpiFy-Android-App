@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //   ),
       // ),
       body: AnimatedSplashScreen(
-        duration: 1700,
+        duration: 1500,
         splash: 'assets/image/splash_logo.png',
         nextScreen: Home(),
         backgroundColor: Color.fromRGBO(235, 234, 235, 2),

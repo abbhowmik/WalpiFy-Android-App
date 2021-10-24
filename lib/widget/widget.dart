@@ -3,19 +3,16 @@ import 'package:walpify/model/walpaper_model.dart';
 import 'package:walpify/views/image_view.dart';
 
 Widget brandName() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Text(
-        "Walpi",
-        style: TextStyle(color: Colors.black),
-      ),
-      Text(" "),
-      Text(
-        "Fy",
-        style: TextStyle(color: Colors.blue),
-      ),
-    ],
+  return RichText(
+    text: TextSpan(
+      style: TextStyle(fontSize: 21),
+      children: <TextSpan>[
+        TextSpan(
+            text: 'Walpi',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
+        TextSpan(text: ' Fy', style: TextStyle(color: Colors.blue)),
+      ],
+    ),
   );
 }
 
