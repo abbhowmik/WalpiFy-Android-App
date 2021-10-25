@@ -61,6 +61,13 @@ class _HomeState extends State<Home> {
                     Expanded(
                       child: TextField(
                         controller: searchQuery,
+                        textInputAction: TextInputAction.search,
+                        onSubmitted: (val) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Search(query: val)));
+                        },
                         decoration: InputDecoration(
                           hintText: "Search for walpaper",
                           border: InputBorder.none,
