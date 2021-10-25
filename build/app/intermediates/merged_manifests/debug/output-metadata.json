@@ -4,7 +4,7 @@
     "type": "MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.example.walpify",
+  "applicationId": "com.ashisbhowmik.walpify",
   "variantName": "debug",
   "elements": [
     {

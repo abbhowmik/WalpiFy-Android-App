@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.example.walpify",
+  "applicationId": "com.ashisbhowmik.walpify",
   "variantName": "processDebugResources",
   "elements": [
     {

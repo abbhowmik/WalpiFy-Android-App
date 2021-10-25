@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.walpify">
    <application
-        android:label="walpify"
+        android:label="WalpiFy"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

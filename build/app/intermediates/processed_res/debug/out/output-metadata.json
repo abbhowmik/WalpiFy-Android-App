@@ -4,7 +4,7 @@
     "type": "PROCESSED_RES",
     "kind": "Directory"
   },
-  "applicationId": "com.example.walpify",
+  "applicationId": "com.ashisbhowmik.walpify",
   "variantName": "processDebugResources",
   "elements": [
     {
