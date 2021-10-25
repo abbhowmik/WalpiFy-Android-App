@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'package:walpify/model/cateries_model.dart';
 
 List<CategorieModel> getCategories() {
