@@ -40,7 +40,6 @@ class _ImageViewState extends State<ImageView> {
               children: [
                 GestureDetector(
                   onTap: () async {
-                    print("Reloading...");
                     _save();
                   },
                   child: Stack(
@@ -117,7 +116,6 @@ class _ImageViewState extends State<ImageView> {
         .get(widget.imgUrl, options: Options(responseType: ResponseType.bytes));
     final result =
         await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
-    print(result);
     Navigator.pop(context);
   }
 
