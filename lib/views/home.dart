@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:walpify/data/data.dart';
@@ -10,8 +7,6 @@ import 'package:walpify/services/api_manager.dart';
 import 'package:walpify/widget/widget.dart';
 import 'category.dart';
 import 'search.dart';
-
-import 'package:http/http.dart' as http;
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
