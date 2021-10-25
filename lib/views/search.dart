@@ -48,6 +48,13 @@ class _SearchState extends State<Search> {
                   Expanded(
                     child: TextField(
                       controller: searchQuery,
+                      textInputAction: TextInputAction.search,
+                      onSubmitted: (val) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Search(query: val)));
+                      },
                       decoration: InputDecoration(
                         hintText: "Search for walpaper",
                         border: InputBorder.none,
