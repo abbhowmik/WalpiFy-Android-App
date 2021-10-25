@@ -27,6 +27,7 @@ class _SearchCategoryState extends State<SearchCategory> {
         centerTitle: true,
         title: brandName(),
         backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
       ),
       body: Container(

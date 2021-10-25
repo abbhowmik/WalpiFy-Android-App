@@ -28,6 +28,8 @@ class _SearchState extends State<Search> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: brandName(),
+        centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         elevation: 0,
       ),
@@ -64,7 +66,7 @@ class _SearchState extends State<Search> {
                 ],
               ),
             ),
-            walpapersList(searchWalpaper, context)
+            walpapersList(searchWalpaper, context),
           ],
         ),
       ),
