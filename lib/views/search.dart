@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:walpify/model/walpaper_model.dart';
 import 'package:walpify/services/api_manager.dart';
@@ -32,6 +33,18 @@ class _SearchState extends State<Search> {
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         elevation: 0,
+        actions: [
+          GestureDetector(
+            onTap: () {
+              showDialog();
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 14),
+              margin: EdgeInsets.only(top: 6),
+              child: Icon(CupertinoIcons.settings),
+            ),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -56,7 +69,7 @@ class _SearchState extends State<Search> {
                                 builder: (context) => Search(query: val)));
                       },
                       decoration: InputDecoration(
-                        hintText: "Search for walpaper",
+                        hintText: "Search for Wallpaper",
                         border: InputBorder.none,
                       ),
                     ),
@@ -77,6 +90,30 @@ class _SearchState extends State<Search> {
           ],
         ),
       ),
+    );
+  }
+
+  void showDialog() {
+    showCupertinoDialog(
+      context: context,
+      builder: (context) {
+        return CupertinoAlertDialog(
+          title: Text("Delete File"),
+          content: Text("Are you sure you want to delete the file?"),
+          actions: [
+            CupertinoDialogAction(
+                child: Text("Cancel"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                }),
+            CupertinoDialogAction(
+                child: Text("Yes"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                }),
+          ],
+        );
+      },
     );
   }
 }

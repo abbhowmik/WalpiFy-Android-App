@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:walpify/data/data.dart';
 import 'package:walpify/model/cateries_model.dart';
@@ -64,7 +67,7 @@ class _HomeState extends State<Home> {
                                   builder: (context) => Search(query: val)));
                         },
                         decoration: InputDecoration(
-                          hintText: "Search for walpaper",
+                          hintText: "Search for Wallpaper",
                           border: InputBorder.none,
                         ),
                       ),
@@ -87,11 +90,13 @@ class _HomeState extends State<Home> {
 
               // ! Categories
               Container(
+                margin: EdgeInsets.only(left:12),
                 height: 100,
                 child: ListView.builder(
                     itemCount: categories.length,
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
+
                     itemBuilder: (context, index) {
                       return CatetoriesTile(
                         title: categories[index].categorieName,
@@ -124,7 +129,7 @@ class CatetoriesTile extends StatelessWidget {
                 builder: (context) => SearchCategory(title: title)));
       },
       child: Container(
-        margin: EdgeInsets.only(right: 4, left: 8),
+        margin: EdgeInsets.only(left:9, right: 5),
         child: Stack(
           children: [
             ClipRRect(
