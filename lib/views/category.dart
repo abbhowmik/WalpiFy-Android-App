@@ -31,6 +31,7 @@ class _SearchCategoryState extends State<SearchCategory> {
         elevation: 0,
       ),
       body: Container(
+        padding: EdgeInsets.symmetric(vertical: 9),
         child: walpapersList(searchWalpaper, context),
       ),
     );

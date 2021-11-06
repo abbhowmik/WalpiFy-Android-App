@@ -24,6 +24,11 @@ class _HomeState extends State<Home> {
   List<CategorieModel> categories = <CategorieModel>[];
   late Future<WalpaperModel> walpaperModel;
 
+  Future getWalpapersData()async{
+    walpaperModel = API_Manager().getWalpapers();
+    setState(() {});
+  }
+
   @override
   void initState() {
     categories = getCategories();
@@ -85,18 +90,18 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(
-                height: 17,
+                height: 7,
               ),
 
               // ! Categories
               Container(
+                padding: EdgeInsets.all(2),
                 margin: EdgeInsets.only(left:12),
-                height: 100,
+                height: 70,
                 child: ListView.builder(
                     itemCount: categories.length,
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
-
                     itemBuilder: (context, index) {
                       return CatetoriesTile(
                         title: categories[index].categorieName,
@@ -105,7 +110,9 @@ class _HomeState extends State<Home> {
                     }),
               ),
               // ! WalpaperList
-              walpapersList(walpaperModel, context)
+              RefreshIndicator(
+                onRefresh: getWalpapersData,
+                  child: walpapersList(walpaperModel, context))
             ],
           ),
         ),
@@ -133,7 +140,7 @@ class CatetoriesTile extends StatelessWidget {
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(6),
+              borderRadius: BorderRadius.circular(25),
               child: Image.network(
                 imgUrl,
                 height: 50,
@@ -142,10 +149,11 @@ class CatetoriesTile extends StatelessWidget {
               ),
             ),
             Container(
-              color: Colors.black38,
               height: 50,
               width: 100,
               alignment: Alignment.center,
+              decoration: BoxDecoration(color: Colors.black38, borderRadius: BorderRadius.circular(25)
+              ),
               child: Text(
                 title,
                 style: TextStyle(

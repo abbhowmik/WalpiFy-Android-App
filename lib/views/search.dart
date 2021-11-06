@@ -41,7 +41,7 @@ class _SearchState extends State<Search> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 14),
               margin: EdgeInsets.only(top: 6),
-              child: Icon(CupertinoIcons.settings),
+              child: Icon(CupertinoIcons.delete),
             ),
           )
         ],
@@ -107,7 +107,7 @@ class _SearchState extends State<Search> {
                   Navigator.of(context).pop();
                 }),
             CupertinoDialogAction(
-                child: Text("Yes"),
+                child: Text("Yes "),
                 onPressed: () {
                   Navigator.of(context).pop();
                 }),

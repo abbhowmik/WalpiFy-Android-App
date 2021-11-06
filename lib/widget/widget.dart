@@ -63,7 +63,10 @@ Widget walpapersList(
                 itemCount: snapshot.data!.photos.length),
           );
         } else {
-          return Center(child: CircularProgressIndicator());
+          return Padding(
+            padding: EdgeInsets.symmetric(vertical: 140),
+            child: Center(child: CircularProgressIndicator()),
+          );
         }
       },
     ),
