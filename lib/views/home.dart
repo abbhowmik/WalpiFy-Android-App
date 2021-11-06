@@ -25,14 +25,14 @@ class _HomeState extends State<Home> {
   late Future<WalpaperModel> walpaperModel;
 
   Future getWalpapersData()async{
+    categories = getCategories();
     walpaperModel = API_Manager().getWalpapers();
     setState(() {});
   }
 
   @override
   void initState() {
-    categories = getCategories();
-    walpaperModel = API_Manager().getWalpapers();
+    getWalpapersData();
     super.initState();
   }
 
@@ -95,8 +95,7 @@ class _HomeState extends State<Home> {
 
               // ! Categories
               Container(
-                padding: EdgeInsets.all(2),
-                margin: EdgeInsets.only(left:12),
+                margin: EdgeInsets.only(left:4),
                 height: 70,
                 child: ListView.builder(
                     itemCount: categories.length,
@@ -110,9 +109,7 @@ class _HomeState extends State<Home> {
                     }),
               ),
               // ! WalpaperList
-              RefreshIndicator(
-                onRefresh: getWalpapersData,
-                  child: walpapersList(walpaperModel, context))
+              walpapersList(walpaperModel, context)
             ],
           ),
         ),
@@ -140,7 +137,7 @@ class CatetoriesTile extends StatelessWidget {
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(12),
               child: Image.network(
                 imgUrl,
                 height: 50,
@@ -152,7 +149,7 @@ class CatetoriesTile extends StatelessWidget {
               height: 50,
               width: 100,
               alignment: Alignment.center,
-              decoration: BoxDecoration(color: Colors.black38, borderRadius: BorderRadius.circular(25)
+              decoration: BoxDecoration(color: Colors.black38, borderRadius: BorderRadius.circular(12)
               ),
               child: Text(
                 title,

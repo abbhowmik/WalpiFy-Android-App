@@ -34,16 +34,16 @@ class _SearchState extends State<Search> {
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
-          GestureDetector(
-            onTap: () {
-              showDialog();
-            },
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 14),
-              margin: EdgeInsets.only(top: 6),
-              child: Icon(CupertinoIcons.delete),
-            ),
-          )
+          // GestureDetector(
+          //   onTap: () {
+          //     showDialog();
+          //   },
+          //   child: Container(
+          //     padding: EdgeInsets.symmetric(horizontal: 14),
+          //     margin: EdgeInsets.only(top: 6),
+          //     child: Icon(CupertinoIcons.delete),
+          //   ),
+          // )
         ],
       ),
       body: SingleChildScrollView(
